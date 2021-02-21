@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Mr. Javascript</title>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+
+        <h1>I'm Mr. JavaScript</h1>
+        <a href="#" class="reset">Reset</a>
+        <a href="#" class="howareyou">Hey JavaScript, how ya feeling?</a>
+
+        <script type="text/javascript">
+        
+            
+
+            var howareyou = document.querySelector(".howareyou");
+            howareyou.addEventListener('click', function(){
+                var h1 = document.querySelector("h1");
+                h1.innerHTML = "I'm alive!";
+                console.log(h1);
+            })
+
+            var reset = document.querySelector(".reset");
+            reset.addEventListener('click', function(){
+                var h1 = document.querySelector("h1");
+                h1.innerHTML = "I'm Mr. JavaScript";
+                console.log(h1);
+            })
+
+        </script>
+    </body>
+
+
+
+
+
+
+
+</html>

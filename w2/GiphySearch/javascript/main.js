@@ -2,8 +2,8 @@
 
 
 document.querySelector(".js-go").addEventListener('click',function(){
-    var input = document.querySelector("input");
-    pushToDOM(input.value)
+    var input = document.querySelector("input").value;
+    pushToDOM(input);
 
 });
 
@@ -22,9 +22,9 @@ document.querySelector(".js-go").addEventListener('click',function(){
 /*  3. Show GIFs */
 
 
-var pushToDOM = function(gifs){
-    var jsContainer = document.querySelector(".js-container")
-    jsContainer.innerHTML = gifs
+function pushToDOM(input) {
 
-
-}
+    var container = document.querySelector(".js-container");
+    container.innerHTML = input;
+  
+  }

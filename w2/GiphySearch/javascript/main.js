@@ -1,11 +1,10 @@
 /*  1. Grab input */
 
-var input = document.querySelector("input");
 
-var go = document.querySelector(".js-go")
+document.querySelector(".js-go").addEventListener('click',function(){
+    var input = document.querySelector("input");
+    pushToDOM(input.value)
 
-go.addEventListener("click", function(){
-    console.log(input.value)
 });
 
 
@@ -21,3 +20,11 @@ go.addEventListener("click", function(){
 
 
 /*  3. Show GIFs */
+
+
+var pushToDOM = function(gifs){
+    var jsContainer = document.querySelector(".js-container")
+    jsContainer.innerHTML = gifs
+
+
+}

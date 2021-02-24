@@ -1,7 +1,14 @@
 /*  1. Grab input */
 
-var input = document.querySelector("input").value;
-console.log(input);
+var input = document.querySelector("input");
+
+var go = document.querySelector(".js-go")
+
+go.addEventListener("click", function(){
+    console.log(input.value)
+});
+
+
 
 
 

@@ -26,8 +26,19 @@ document.querySelector(".js-userinput").addEventListener('keyup',function(e){
 /*  2. API stuff */
 
 
+var url = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC";
 
+// AJAX Request
+var GiphyAJAXCall = new XMLHttpRequest();
+GiphyAJAXCall.open( 'GET', url );
+GiphyAJAXCall.send();
 
+GiphyAJAXCall.addEventListener('load',function(e){
+
+    var data = e.target.response;
+    pushToDOM(data);
+
+});
 
 
 
@@ -36,7 +47,14 @@ document.querySelector(".js-userinput").addEventListener('keyup',function(e){
 
 function pushToDOM(input) {
 
+    var response = JSON.parse(input);
+    console.log(response);
+
+    var imageUrl = response.data[0].images.fixed_height.url;
+    console.log(imageUrl);
+
+
     var container = document.querySelector(".js-container");
-    container.innerHTML = input;
+    container.innerHTML = "<img src=" + imageUrl + " alt='gifs'>";
   
   }

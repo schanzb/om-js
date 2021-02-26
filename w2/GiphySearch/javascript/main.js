@@ -1,10 +1,10 @@
+
 /*  1. Grab input */
 
 // When go button is clicked
 document.querySelector(".js-go").addEventListener('click',function(){
     var input = document.querySelector("input").value;
     makeUrlReady(input);
-    // console.log(input);
 
 });
 
@@ -64,21 +64,20 @@ function pushToDOM(input) {
     var container = document.querySelector(".js-container");
 
     imageUrls.forEach(function(image){
+
+
         var src= image.images.fixed_height.url;
         //console.log(src)
-
-
         container.innerHTML += "<img src=" + src + " alt='gifs' class='container-image'>";
     });
 
-    /* var x;
-    for(x = 0; x < 20; x++){
-        setTimeout(function(){
-            var box = document.createElement('div');
-            box.className='box';
-            document.getElementById('container').appendChild(box);
-        },250 * x)
-    } */
-    
-  
-  };
+};
+
+/* var x;
+for(x = 0; x < 20; x++){
+    setTimeout(function(){
+        var box = document.createElement('div');
+        box.className='box';
+        document.getElementById('container').appendChild(box);
+    },250 * x)
+} */

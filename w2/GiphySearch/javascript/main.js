@@ -48,13 +48,21 @@ GiphyAJAXCall.addEventListener('load',function(e){
 function pushToDOM(input) {
 
     var response = JSON.parse(input);
-    console.log(response);
+    // console.log(response);
 
-    var imageUrl = response.data[0].images.fixed_height.url;
-    console.log(imageUrl);
+    var imageUrls = response.data;
+    // .images.fixed_height.url
+    
+
+    imageUrls.forEach(function(image){
+        var src= image.images.fixed_height.url;
+        console.log(src)
+
+        var container = document.querySelector(".js-container");
+        container.innerHTML = "<img src=" + src + " alt='gifs'>";
+    });
 
 
-    var container = document.querySelector(".js-container");
-    container.innerHTML = "<img src=" + imageUrl + " alt='gifs'>";
+    
   
-  }
+  };

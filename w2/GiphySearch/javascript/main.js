@@ -3,17 +3,19 @@
 // When go button is clicked
 document.querySelector(".js-go").addEventListener('click',function(){
     var input = document.querySelector("input").value;
-    pushToDOM(input);
+    makeUrlReady(input);
+    // console.log(input);
 
 });
 
 document.querySelector(".js-userinput").addEventListener('keyup',function(e){
 
     var input = document.querySelector("input").value;
-
+    
     //if ENTER is pressed
     if(e.which === 13){
-        pushToDOM(input);
+        makeUrlReady(input);
+        // console.log(input);
     }
 
 
@@ -25,20 +27,28 @@ document.querySelector(".js-userinput").addEventListener('keyup',function(e){
 
 /*  2. API stuff */
 
+function makeUrlReady(input){
+    var replaced = input.replace(/ /g, '+'); //reaplces spaces with +
+    urlReady(replaced);
+};
 
-var url = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC";
+function urlReady(a){
+    var url = "http://api.giphy.com/v1/gifs/search?q="+ a + "&api_key=dc6zaTOxFJmzC";
 
-// AJAX Request
-var GiphyAJAXCall = new XMLHttpRequest();
-GiphyAJAXCall.open( 'GET', url );
-GiphyAJAXCall.send();
+    // AJAX Request
+    var GiphyAJAXCall = new XMLHttpRequest();
+    GiphyAJAXCall.open( 'GET', url );
+    GiphyAJAXCall.send();
 
-GiphyAJAXCall.addEventListener('load',function(e){
+    GiphyAJAXCall.addEventListener('load',function(e){
 
-    var data = e.target.response;
-    pushToDOM(data);
+        var data = e.target.response;
+        pushToDOM(data);
 
-});
+    });
+
+
+};
 
 
 
@@ -48,21 +58,27 @@ GiphyAJAXCall.addEventListener('load',function(e){
 function pushToDOM(input) {
 
     var response = JSON.parse(input);
-    // console.log(response);
+      //console.log(response);
 
     var imageUrls = response.data;
-    // .images.fixed_height.url
-    
+    var container = document.querySelector(".js-container");
 
     imageUrls.forEach(function(image){
         var src= image.images.fixed_height.url;
-        console.log(src)
+        //console.log(src)
 
-        var container = document.querySelector(".js-container");
+
         container.innerHTML += "<img src=" + src + " alt='gifs' class='container-image'>";
     });
 
-
+    /* var x;
+    for(x = 0; x < 20; x++){
+        setTimeout(function(){
+            var box = document.createElement('div');
+            box.className='box';
+            document.getElementById('container').appendChild(box);
+        },250 * x)
+    } */
     
   
   };

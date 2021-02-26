@@ -59,7 +59,7 @@ function pushToDOM(input) {
         console.log(src)
 
         var container = document.querySelector(".js-container");
-        container.innerHTML = "<img src=" + src + " alt='gifs'>";
+        container.innerHTML += "<img src=" + src + " alt='gifs' class='container-image'>";
     });
 
 

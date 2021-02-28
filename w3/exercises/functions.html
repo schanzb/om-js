@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Functions</title>
+    <title>Functions and objects</title>
     <script type="text/javascript">
     
         function catSound(){
             console.log("nya nye");
         };
-
         catSound();
 
 
@@ -15,8 +14,20 @@
         var dogSound = function(){
             console.log("wan wan");
         };
-
         dogSound();
+
+
+        // objects
+        var flight = {
+            airline: "American Airways",
+            number: 235,
+            departure: {
+                time: "2016-10-01",
+                city: "JFK"
+            }
+        };
+
+        console.log(flight.departure.city);
     
     </script>
 </head>

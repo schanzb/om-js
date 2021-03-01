@@ -30,56 +30,52 @@ SoundCloudAPI.getTrack("Rilo Kiley");
 
 
 SoundCloudAPI.renderTracks = function() {
-    // makes .card div
+    // card
     var card = document.createElement('div');
-    card.classList.add('card', 'card-js');
+    card.classList.add('card');
+
+    // make .image div
+    var imageDiv = document.createElement('div');
+    imageDiv.classList.add('image');
+
+    var image_img = document.createElement('img');
+    image_img.classList.add('image_img');
+    image_img.src = 'http://www.placekitten.com/290/290';
+
+    imageDiv.appendChild(image_img);
+
+
+    // content
+    var content = document.createElement('div');
+    content.classList.add('content');
+
+    var header = document.createElement('div');
+    header.classList.add('header');
+    header.innerHTML = '<a href="#" target="_blank">"Science Vs. Romance"</a>'
+
+    // button
+    var button = document.createElement('div');
+    button.classList.add('ui', 'bottom', 'attached', 'button', 'js-button');
+    
+    var icon = document.createElement('i');
+    icon.classList.add('add', 'icon');
+
+    var buttonText = document.createElement('span');
+    buttonText.innerHTML = 'Add to Playlist';
+
+    //apendChild
+    content.appendChild(header);
+
+    button.appendChild(icon);
+    button.appendChild(buttonText);
+
+    card.appendChild(imageDiv);
+    card.appendChild(content);
+    card.appendChild(button);
 
     var searchResults = document.querySelector('.js-search-results');
     searchResults.appendChild(card);
-
-
-    // make .image div
-    var image = document.createElement('div');
-    image.classList.add('image-js');
-
-    var cardDiv = document.querySelector('.card-js');
-    cardDiv.appendChild(image);
-    // put in image
-    var imageDiv = document.querySelector('.image-js')
-    imageDiv.innerHTML = "<img class='image_img' src='http://www.placekitten.com/290/290'>";
-
-
-    // make .content div
-    var content = document.createElement('div');
-    content.classList.add('content', 'content-js');
-
-    cardDiv.appendChild(content);
-
     
-    // make .header div
-    var header = document.createElement('div');
-    header.classList.add('header', 'header-js');
-
-    var contentDiv = document.querySelector('.content-js');
-    contentDiv.appendChild(header);
-    // put in title
-    var headerDiv = document.querySelector('.header-js');
-    headerDiv.innerHTML = '<a href="https://soundcloud.com/barsuk-records/rilo-kiley-science-vs-romance" target="_blank">"Science Vs. Romance"</a>';
-
-
-    // make add to playlist button
-    var button = document.createElement('div');
-    button.classList.add('ui', 'bottom' , 'attached' , 'button', 'js-button', 'button-js');
-
-    cardDiv.appendChild(button);
-    // add icon
-    var buttonDiv = document.querySelector('.button-js');
-    // var icon = document.createElement('i');
-    // icon.classList.add('add icon');
-    
-    buttonDiv.innerHTML = '<i class="add icon"></i>';
-    buttonDiv.innerHTML = '<span>Add to playlist</span>';
-
 
 };
 SoundCloudAPI.renderTracks();

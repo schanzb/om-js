@@ -34,10 +34,38 @@ UI.SubmitClick = function(){
 };
 
 
+UI.SavePlaylist = function(){
+    document.querySelector('.js-save').addEventListener('click', function(){
+        var playlistName = prompt('Enter Playlist Name(case sensitive)')
+
+        var sideBar = document.querySelector('.js-playlist');
+
+        localStorage.setItem(playlistName, sideBar.innerHTML)
+
+
+    });
+};
+
+
+UI.LoadPlaylist = function(){
+    document.querySelector('.js-load').addEventListener('click', function(){
+        var playlistName = prompt('Enter Playlist Name(case sensitive)')
+
+        var sideBar = document.querySelector('.js-playlist');
+
+        var playlist = localStorage.getItem(playlistName, sideBar.innerHTML)
+        sideBar.innerHTML = playlist
+
+
+    });
+};
+
+
+
 UI.clearPlaylist = function(){
     document.querySelector('.js-clear').addEventListener('click', function(){
-        localStorage.clear();
-        
+        localStorage.removeItem('key');
+
         var sideBar = document.querySelector('.js-playlist');
         sideBar.innerHTML = "";
     });
@@ -47,6 +75,9 @@ UI.clearPlaylist = function(){
 UI.EnterPress();
 UI.SubmitClick();
 UI.clearPlaylist();
+UI.SavePlaylist();
+UI.LoadPlaylist();
+
 
 
 

@@ -5,8 +5,12 @@ html, body {
 	min-height: 100%;
 }
 
-.js-clear{
-	margin: 10px 10px 10px 0;
+.playlist-control{
+	margin: 5px;
+}
+
+.js-clear {
+	margin-left: 0;
 }
 
 #soundcloud-player .col {

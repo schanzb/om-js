@@ -5,6 +5,10 @@ html, body {
 	min-height: 100%;
 }
 
+.js-clear{
+	margin: 10px 10px 10px 0;
+}
+
 #soundcloud-player .col {
 	position: fixed;
 	height: 100%;

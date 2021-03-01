@@ -1,14 +1,54 @@
 // Search
 var UI = {};
 
-UI.EnterPress = function(){
 
+
+
+UI.EnterPress = function(){
+    var searhBar = document.querySelector('.js-search');
+
+    searhBar.addEventListener('keyup', function(e){
+
+        if(e.which === 13){
+        
+            var input = e.target.value;
+            SoundCloudAPI.getTrack(input);
+        }
+    });
 };
 
 
 UI.SubmitClick = function(){
+    
+
+    var searchButton = document.querySelector('.js-submit');
+    searchButton.addEventListener('click', function(){
+        var input = document.querySelector('.js-search').value;
+        console.log(input);
+        SoundCloudAPI.getTrack(input);
+    });
+    
+
+
 
 };
+
+
+UI.clearPlaylist = function(){
+    document.querySelector('.js-clear').addEventListener('click', function(){
+        localStorage.clear();
+        
+        var sideBar = document.querySelector('.js-playlist');
+        sideBar.innerHTML = "";
+    });
+};
+
+
+UI.EnterPress();
+UI.SubmitClick();
+UI.clearPlaylist();
+
+
 
 
 
@@ -31,17 +71,20 @@ SoundCloudAPI.getTrack = function(inputValue){
     SC.get('/tracks', {
         q: inputValue
     }).then(function(tracks) {
-        console.log(tracks);
+        // console.log(tracks);
+
+        var searchResult = document.querySelector('.js-search-results');
+            searchResult.innerHTML= "";
         
-        SoundCloudAPI.renderTracks(tracks);
+        SoundCloudAPI.renderTracks(tracks, searchResult);
     });
 };
 
-SoundCloudAPI.getTrack("Rilo Kiley");
+// SoundCloudAPI.getTrack("Rilo Kiley");
 
 // Display Cards
 
-SoundCloudAPI.renderTracks = function(tracks) {
+SoundCloudAPI.renderTracks = function(tracks, searchResult) {
 
     tracks.forEach(function(track){
         // card
@@ -91,8 +134,8 @@ SoundCloudAPI.renderTracks = function(tracks) {
         card.appendChild(content);
         card.appendChild(button);
 
-        var searchResults = document.querySelector('.js-search-results');
-        searchResults.appendChild(card);
+
+        searchResult.appendChild(card);
     });
 
 };

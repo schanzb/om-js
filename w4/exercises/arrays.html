@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Arrays</title>
+</head>
+<body>
+
+
+
+    <script type="text/javascript">
+    
+        //PUSH - add new elements to an array
+
+        let sports = ['soccer', 'baseball']
+        let total = sports.push('football', 'swimming')
+        // console.log(sports)  // ['soccer', 'baseball', 'football', 'swimming']
+        // console.log(total)   // 4
+    
+
+        //POP- remove last element of an array
+
+        var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+        var popped = myFish.pop();
+        // console.log(myFish); // ['angel', 'clown', 'mandarin' ]
+        // console.log(popped); // 'sturgeon'
+
+
+        //SHIFT - removes first element of an array
+
+        var myFish = ['angel', 'clown', 'mandarin', 'surgeon'];
+        //console.log('myFish before:', JSON.stringify(myFish)); // myFish before: ['angel', 'clown', 'mandarin', 'surgeon']
+        var shifted = myFish.shift();
+        //console.log('myFish after:', myFish); // myFish after: ['clown', 'mandarin', 'surgeon']
+        //console.log('Removed this element:', shifted); // Removed this element: angel
+
+
+        //REVERSE - reverses the array
+
+        const a = [1, 2, 3];
+        console.log(a); // [1, 2, 3]
+        a.reverse();
+        console.log(a); // [3, 2, 1]
+
+    
+    
+    </script>
+    
+</body>
+</html>
